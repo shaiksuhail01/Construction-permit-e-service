@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mainContainer{
+  background-image: linear-gradient(to bottom right, #9c9c9c,#90b8cc);
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.loginPagesContainer {
+     background-color: #ffffff;
+     border-radius: 20px;
+    padding:15px;
+    
+}
+.loginfullPageContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+  .loginContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    
+  }
+  
+  .headingOne {
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    font-size: 24px; 
+    padding: 0px;
+  }
+  
+  .imageLogin {
+    border-radius: 52px; 
+   
+    height: 130px; 
+    width: 130px; 
+  }
+  
+  .desc {
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    font-size: 15px;
+    color: black; 
+    font-weight: bold;
+    margin-top: 35px;
+  }
+  .loginHeader{
+    font-size: 36px;
+    font-weight: bold;
+    padding: 30px 0 15px;
+    text-align: center;
+    font-family: 'SFProDisplay', sans-serif; 
+    color: #001f3f;
+    text-align: center;
+  }
+  .button {
+    padding: 15px;
+    width: 240px; 
+    font-size: 18px;
+    background-color: #001f3f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+ 
+  }
+  
+  button:hover {
+    background-color: #003366; 
+  }
+  .labelText{
+    font-family:  "Roboto", sans-serif;
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  
+  .mobileContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .dividerLine {
+    width: 100%;
+    height: 2px;
+    background-color: #001f3f; /* Change color as needed */
+    margin: 20px 0; /* Adjust margin as needed */
+  }
+ 
+  @media only screen and (min-width: 1000px) {
+    
+    .loginContainer {
+       margin:60px;
+      }
+    .loginfullPageContainer{
+        flex-direction: row;  
+    }
+    .loginPagesContainer{
+    margin: 70px;
+    }
+    .button{
+      width: 400px;
+    }
+   
+  }
+  
+  
