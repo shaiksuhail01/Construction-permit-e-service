@@ -206,16 +206,32 @@ const ChBuildingInfo = () => {
 
 
   const handleAddStage = () => {
-    setConstructionStages((prevStages) => [...prevStages, prevStages.length + 1]);
+    const allPreviousStagesFilled = constructionStages.every((stage) => selectedValues[stage]);
+    
+    if (allPreviousStagesFilled) {
+      setConstructionStages((prevStages) => [...prevStages, prevStages.length + 1]);
+    } else {
+      // Display an error message or take appropriate action
+      console.log('Fill all previous stages before adding a new one');
+    }
   };
-
+  
 
   const handleAddBuildingStage = () => {
-    setBuildingData(prevData => [
-      ...prevData,
-      { buildingNumber: '', totalSize: '', numberOfFloors: '' },
-    ]);
+    // Check if the building details of the previous row are not empty
+    const allPreviousBuildingDetailsFilled = buildingData.every((building) => building.totalSize && building.numberOfFloors);
+  
+    if (allPreviousBuildingDetailsFilled) {
+      setBuildingData((prevData) => [
+        ...prevData,
+        { buildingNumber: '', totalSize: '', numberOfFloors: '' },
+      ]);
+    } else {
+      // Display an error message or take appropriate action
+      console.log('Fill all previous building details before adding a new row');
+    }
   };
+  
 
 
   const handleStageChange = (stage, value) => {
@@ -233,6 +249,29 @@ const ChBuildingInfo = () => {
       return newData;
     });
   };
+
+  const handleResetButtonClick = () => {
+    // Reset all the state values to their initial empty states
+    setPlotNumber('');
+    setSystemId('');
+    setKrookieNumber('');
+    setPlotAddress('');
+    setFullAddresses([]);
+    setAdvertisementType('');
+    setConstructionStages([1]);
+    setStageOptions([]);
+    setSelectedValues({});
+    setBuildingData([{ buildingNumber: '', totalSize: '', numberOfFloors: '' }]);
+    setErrors({
+      plotNumber: false,
+      krookieNumber: false,
+      plotAddress: false,
+      consultantCode: false,
+      consultantName: false,
+      advertisementType: false,
+    });
+  };
+  
 
 
   const handleNextButtonClick = () => {
@@ -372,7 +411,7 @@ const ChBuildingInfo = () => {
       <div className={`buildinInfoContainer ${isArabic ? 'rtl' : ''}`} >
         <h1 className="headingInfo p-4">{t('buildingInfoHeader')}</h1>
       
-          <div className="card bg-white mb-3 shadow rounded border-0">
+          <div className="card bg-white mb-3 shadow rounded border-0" style={{margin:'18px'}}>
             <div className="p-3">
               <h1 className="subHeadings">{t('plotInfoHeader')}</h1>
             </div>
@@ -481,6 +520,8 @@ const ChBuildingInfo = () => {
             </div>
           
         </div>
+       
+       
         <div className='plotConstructionContainer'>
           <div className="card bg-white m-3 shadow rounded border-0 ">
             <div className="p-3">
@@ -675,7 +716,7 @@ const ChBuildingInfo = () => {
         <div className='nextButtonCont'style={{ float: 'right', marginTop: '10px', marginLeft:'20px'}}>
         <Link to="/">
         <button className="buttonAdd w-40 p-2">
-          Back
+          {t('backButton')}
         </button>
       </Link>
         </div>
@@ -684,11 +725,17 @@ const ChBuildingInfo = () => {
 
 
         <div style={{ marginBottom: '50px', textAlign: 'right' }}>
-        <div className='nextButtonCont'style={{ float: 'right', marginTop: '10px',marginRight: '18px' }}>
-          <button className="buttonAdd w-40 p-2" onClick={handleNextButtonClick}>
-            {t('nextButton')}
-          </button>
-        </div>
+      
+        <div className='nextButtonCont' style={{ marginTop: '10px', textAlign: 'center' }}>
+  <button className="buttonAdd w-40 p-2" style={{ marginRight: '16px' }} onClick={handleResetButtonClick}>
+    {t('resetButton')}
+  </button>
+  <button className="buttonAdd w-40 p-2" style={{marginRight:'18px'}} onClick={handleNextButtonClick}>
+    {t('nextButton')}
+  </button>
+</div>
+
+
         </div>
         </div>
 

@@ -67,6 +67,7 @@
 .nextButtonCont{
     margin-top: 10px;
     text-align: center;
+    justify-content: space-between;
 }
 .red-icon {
     color: #ff8080;

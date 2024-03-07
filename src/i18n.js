@@ -41,7 +41,10 @@ const resources = {
       "yesButton": "Yes",
       "requiredFieldsTitle": "All the fields are required",
       "requiredFieldsText": "Please fill all the given fields to proceed next.",
-      "okButton": "Ok"
+      "okButton": "Ok",
+      backButton:'Back',
+      resetButton:'Reset'
+
     },
   },
   ar: {
@@ -94,7 +97,9 @@ const resources = {
       "yesButton": "نعم",
       "requiredFieldsTitle": "جميع الحقول مطلوبة",
       "requiredFieldsText": "يرجى ملء جميع الحقول المطلوبة للمضي قدمًا.",
-      "okButton": "موافق"
+      "okButton": "موافق",
+      backButton: 'رجوع',
+      resetButton: 'مسح',
     },
   },
 };
