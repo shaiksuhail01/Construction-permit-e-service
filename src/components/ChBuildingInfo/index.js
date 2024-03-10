@@ -713,8 +713,9 @@ const ChBuildingInfo = () => {
 
        <div className='nextButtonContainer'>
         <div style={{ marginBottom: '50px', textAlign: 'left' }}>
-        <div className='nextButtonCont'style={{ float: 'right', marginTop: '10px', marginLeft:'20px'}}>
-        <Link to="/">
+        <div className='nextButtonCont' style={{ float: 'right', marginTop: '10px', ...(i18n.language === 'ar' ? { marginLeft: '0px' } : {marginLeft: '9px'}) }}>
+  <Link to="/">
+
         <button className="buttonAdd w-40 p-2">
           {t('backButton')}
         </button>
@@ -722,12 +723,10 @@ const ChBuildingInfo = () => {
         </div>
         </div>
 
-
-
         <div style={{ marginBottom: '50px', textAlign: 'right' }}>
       
         <div className='nextButtonCont' style={{ marginTop: '10px', textAlign: 'center' }}>
-  <button className="buttonAdd w-40 p-2" style={{ marginRight: '16px' }} onClick={handleResetButtonClick}>
+  <button className="buttonAdd w-40 p-2" style={{ ...(i18n.language === 'ar' ? { marginLeft: '20px' } : {marginRight: '20px'})}} onClick={handleResetButtonClick}>
     {t('resetButton')}
   </button>
   <button className="buttonAdd w-40 p-2" style={{marginRight:'18px'}} onClick={handleNextButtonClick}>
